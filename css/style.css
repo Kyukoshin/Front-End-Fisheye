@@ -14,11 +14,6 @@ header {
     height: 90px;
 }
 
-h1 {
-    color: #901C1C;
-    margin-right: 100px;
-}
-
 .logo {
     height: 50px;
     margin-left: 100px;
@@ -39,12 +34,41 @@ h1 {
     flex-direction: column;
 }
 
+.photographer_section article a {
+    text-decoration: none;
+    text-align: center;
+}
+
+h1 {
+    color: #901C1C;
+    margin-right: 100px;
+}
+
 .photographer_section article h2 {
     color: #D3573C;
     font-size: 36px;
+    margin-bottom: 20px;
+}
+
+.photographer_section article h3 {
+    font-size: 16px;
+    font-weight: 100;
+    color: #901C1C;
+    margin: -12px;
+}
+
+.photographer_section article h4 {
+    font-size: 14px;
+}
+
+.photographer_section article h5 {
+    font-weight: 100;
+    margin: -12px;
 }
 
 .photographer_section article img {
-    height: 200px;
-    width: 200px;
+    height: 250px;
+    width: 250px;
+    border-radius: 500px;
+    object-fit: cover;
 }

@@ -1,3 +1,21 @@
+body {
+    font-family: "DM Sans", sans-serif;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+
+.logo {
+    height: 50px;
+    margin-left: 100px;
+}
+
 #contact_modal {
     display: none;
 }
@@ -31,11 +49,16 @@
     justify-content: space-between;
     padding: 35px;
     margin: auto;
+    position: absolute;
+    left: 22%;
+    top: 10%;
 }
 
 .modal header {
     justify-content: space-between;
     width: 100%;
+    padding-bottom: 35px;
+    padding-top: 15px;
 }
 
 .modal header img {
@@ -43,9 +66,9 @@
 }
 
 .modal header h2 {
-    font-size: 64px;
+    font-size: 50px;
     font-weight: normal;
-    text-align: center;
+    height:3em;
 }
 
 form {
@@ -73,4 +96,80 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
+}
+
+.photograph-header article {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 5em;
+}
+
+.photograph-header article img{
+    aspect-ratio: 1 / 1;
+    width: 15em;
+    display: flex;
+    border-radius: 500px;
+    object-fit: cover;
+}
+
+.photograph-content{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0 100px;
+}
+
+.photograph-content article{
+    width: 28%;
+}
+
+.photograph-content article img{
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    border-radius: 7px;
+    object-fit: cover;
+}
+
+.picDesc{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: -5px;
+    margin-bottom: 2em;
+}
+
+h1{
+    font-size: 3rem;
+    color: #D3573C;
+    margin: 0;
+}
+
+h3{
+    font-size: 1.5rem;
+    color: #901C1C;
+    font-weight: 100;
+}
+
+h4{
+    font-weight: 100;
+}
+
+.photograph-content article h4{
+    font-size: 1.2rem;
+    color: #901C1C;
+    font-weight: 100;
+}
+
+.bottomStats{
+    background-color:#D3573C ;
+    border-radius: 10px 10px 0 0;
+    position: fixed;
+    bottom: 0;
+    right: 5em;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    font-size: 25px;
+    padding: 0 25px;
 }

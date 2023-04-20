@@ -1,26 +1,16 @@
 async function getPhotographers() {
-    // Ceci est un exemple de données pour avoir un affichage de photographes de test dès le démarrage du projet, 
-    // mais il sera à remplacer avec une requête sur le fichier JSON en utilisant "fetch".
-    const photographersDB = "https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Front-End-Fisheye/main/data/photographers.json";
-    let photographers = [];
-
-    if (window.fetch) {
-        fetch(photographersDB)
-        .then((response) => response.json())
-        .then((data) => console.log(data));
-    } else {
-        console.log("requete foirée");
-    }    
-    
-    photographers = data;
-    // et bien retourner le tableau photographers seulement une fois récupéré
-    return ({
-        photographers: [...photographers, ...photographers, ...photographers]})
+    const response = await fetch('https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Front-End-Fisheye/main/data/photographers.json');
+    if (!response.ok) {
+        console.log("Error");
+    }
+    const data = await response.json();
+    console.log(data);  
+    return data;    
 }
 
 async function displayData(photographers) {
     const photographersSection = document.querySelector(".photographer_section");
-
+    console.log(photographers);  
     photographers.forEach((photographer) => {
         const photographerModel = photographerFactory(photographer);
         const userCardDOM = photographerModel.getUserCardDOM();
@@ -30,7 +20,8 @@ async function displayData(photographers) {
 
 async function init() {
     // Récupère les datas des photographes
-    const { photographers } = await getPhotographers();
+    const {photographers} = await getPhotographers();
+    console.log(photographers);  
     displayData(photographers);
 };
 
