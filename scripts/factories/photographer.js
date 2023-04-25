@@ -91,11 +91,34 @@ function photographerMediaFactory(data) {
         heart.setAttribute("class","fa-solid fa-heart");
         heart.setAttribute("style", "color: #901c1c");
         h4.appendChild(heart);
-        article.appendChild(img);
+        article.appendChild(new factoryImage(data));
         desc.appendChild(h3);
         desc.appendChild(h4);
         article.appendChild(desc);
         return (article);
     }
     return { date,likes,price,title,video,image, getUserCardDOM }
+}
+
+class factoryImage {
+	constructor(element) {
+        if(element.video)
+            return this.createVideo(element.video)
+        else 
+            return this.createImage(element.image)
+    }
+
+    createVideo(video) {
+        let vid = document.createElement("video")
+        let sour = document.createElement("source")
+        sour.src= `D:\\Projets_Code\\OC\\Projet_FishEye\\Front-End-Fisheye-main\\assets\\photographers\\Sample Photos\\PhotographersPhotos\\`+video
+        vid.appendChild(sour)
+        return vid
+    }
+
+    createImage(image) {
+        let img = document.createElement("img")
+        img.src= `D:\\Projets_Code\\OC\\Projet_FishEye\\Front-End-Fisheye-main\\assets\\photographers\\Sample Photos\\PhotographersPhotos\\`+image
+        return img
+    }
 }

@@ -131,6 +131,13 @@ form input {
     object-fit: cover;
 }
 
+.photograph-content article video{
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    border-radius: 7px;
+    object-fit: cover;
+}
+
 .picDesc{
     display: flex;
     justify-content: space-between;
