@@ -79,8 +79,6 @@ function photographerMediaFactory(data) {
 
     function getUserCardDOM() {
         const article = document.createElement( 'article' );
-        const img = document.createElement( 'img' );
-        img.setAttribute("src", picture)
         const h3 = document.createElement( 'h3' );
         h3.textContent = title;
         const h4 = document.createElement( 'h4' );

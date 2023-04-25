@@ -24,24 +24,24 @@
           <h2></h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
-				<form>
+				<form method="get" class ="form">
 					<div>
 						<label>Prénom</label>
-						<input />
+						<input type="text" name="prenom" id="prenom" required>
 					</div>
           <div>
 						<label>Nom</label>
-						<input />
+						<input  type="text" name="nom" id="nom" required>
 					</div>
           <div>
 						<label>Email</label>
-						<input />
+						<input  type="email" name="email" id="email" required>
 					</div>
           <div>
 						<label>Votre message</label>
-						<input />
+						<input  type="text" name="message" id="message" required>
 					</div>
-          <button class="contact_button">Envoyer</button>
+          <button type="submit" class="contact_button">Envoyer</button>
 				</form>
 			</div>
 		</div>    
