@@ -8,20 +8,23 @@
     <script src="https://kit.fontawesome.com/cc60b00ab7.js" crossorigin="anonymous"></script>
     <title>Fisheye - photographe </title>
   </head>
-  <body>
+  <body id="body">
+
     <header>
       <a href="index.html"><img src="assets/images/logo.png" class="logo" /></a>
     </header>
-    <main id="main">
+
+    <main id="main" aria-hidden="false"> 
       <div class="photograph-header">
       </div>
       <div class="photograph-content">
       </div>
     </main>
+
     <div id="contact_modal">
-			<div class="modal">
+			<div class="contact_modal">
 				<header>
-          <h2></h2>
+          <h2 id="contact_h2"></h2>
           <img src="assets/icons/close.svg" onclick="closeModal()" />
         </header>
 				<form method="get" class ="form">
@@ -44,9 +47,15 @@
           <button type="submit" class="contact_button">Envoyer</button>
 				</form>
 			</div>
-		</div>    
-    <script src="scripts/factories/photographer.js" defer></script>
+		</div>     
+    
+    <div class="lightbox" id="lightbox">
+      <ul class="lightboxContainer">
+      </ul>
+    </div>
+   
     <script src="D:/Projets_Code/OC/Projet_FishEye/Front-End-Fisheye-main/scripts/pages/photographer.js" defer></script>
+    <script src="scripts/factories/photographer.js" defer></script>
     <script src="D:/Projets_Code/OC/Projet_FishEye/Front-End-Fisheye-main/scripts/utils/contactForm.js" defer></script>
   </body>
 </html>

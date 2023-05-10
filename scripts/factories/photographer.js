@@ -33,7 +33,7 @@ function photographerSingleFactory(data) {
 
     const picture = `D:\\Projets_Code\\OC\\Projet_FishEye\\Front-End-Fisheye-main\\assets\\photographers\\Sample Photos\\Photographers ID Photos\\`+portrait;
 
-    function getUserCardDOM() {        
+    function getUserCardDOM() {     
         const article = document.createElement( 'article' );
         const info = document.createElement( 'div' );
         const modale = document.createElement( 'div' );
@@ -48,14 +48,20 @@ function photographerSingleFactory(data) {
         h4.textContent = tagline;
         const h5 = document.createElement( 'h5' );
         h5.textContent = price+"€/jour";     
+        const totLikes = document.createElement( 'h5' );
+        totLikes.textContent = totalLikes;   
+        const totHeart = document.createElement( 'i' );
+        totHeart.setAttribute("class","fa-solid fa-heart");
         const modal = document.createElement( 'button' );
         modal.setAttribute("class", "contact_button" )
         modal.setAttribute("onclick", "displayModal()");
         modal.textContent = "Contactez-moi";
-        const modalName = document.querySelector(".modal header h2");
+        const modalName = document.querySelector(".contact_modal header h2");
         modalName.innerHTML = "Contactez-moi<br/>"+name;
         const stats = document.createElement('div');
         stats.setAttribute("class", "bottomStats");
+        stats.appendChild(totLikes);
+        stats.appendChild(totHeart);
         stats.appendChild(h5)
         info.appendChild(h1);
         info.appendChild(h3);
@@ -72,8 +78,10 @@ function photographerSingleFactory(data) {
     return { name, portrait, tagline, price, city, country, getUserCardDOM }
 }
 
+let numSlide = 1
+
 function photographerMediaFactory(data) {
-    const { date,likes,price,title,video,image } = data;
+    const { date,likes,price,title,video,image,id } = data;
 
     const picture = `D:\\Projets_Code\\OC\\Projet_FishEye\\Front-End-Fisheye-main\\assets\\photographers\\Sample Photos\\PhotographersPhotos\\`+image;
 
@@ -89,13 +97,31 @@ function photographerMediaFactory(data) {
         heart.setAttribute("class","fa-solid fa-heart");
         heart.setAttribute("style", "color: #901c1c");
         h4.appendChild(heart);
-        article.appendChild(new factoryImage(data));
+        article.appendChild(new factoryImage(data));        
         desc.appendChild(h3);
         desc.appendChild(h4);
-        article.appendChild(desc);
+        article.appendChild(desc);  
+        article.setAttribute("onclick",`displayLightBox();currentSlide(${numSlide})`); 
+        numSlide ++     
         return (article);
     }
-    return { date,likes,price,title,video,image, getUserCardDOM }
+    return { date,likes,price,title,video,image,id, getUserCardDOM }
+}
+
+function lightboxFactory(media) {
+    const { date,likes,price,title,video,image,id } = media;
+    
+    function getUserCardDOM() {
+        const img = document.createElement( 'li' );
+        img.setAttribute("class","lightboxImage");
+        img.appendChild(new factoryImage(media)); 
+        const caption = document.createElement('p');
+        caption.setAttribute("class","lightboxPicDesc");
+        caption.innerHTML = title;
+        img.appendChild(caption); 
+        return (img);
+    }
+    return { date,likes,price,title,video,image,id, getUserCardDOM }
 }
 
 class factoryImage {
@@ -110,7 +136,7 @@ class factoryImage {
         let vid = document.createElement("video")
         let sour = document.createElement("source")
         sour.src= `D:\\Projets_Code\\OC\\Projet_FishEye\\Front-End-Fisheye-main\\assets\\photographers\\Sample Photos\\PhotographersPhotos\\`+video
-        vid.appendChild(sour)
+        vid.appendChild(sour)        
         return vid
     }
 

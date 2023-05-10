@@ -1,8 +1,8 @@
 let params = (new URL(document.location)).searchParams;
 let id = params.get('id');
 console.log(id);
-
 let currentPhotographer;
+let totalLikes = 0;
 
 async function getPhotographers() {
     fetch('https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Front-End-Fisheye/main/data/photographers.json')
@@ -27,20 +27,26 @@ function extractData(data) {
       photographersSection.appendChild(userCardDOM);       
     }
   });
-
-  data.media.forEach((media) => {
-    //fetch only media where link id is found and inject in dedicated factory
-    if (media.photographerId === Number(id)) {    
+  let a = data.media.filter((media)=>(media.photographerId===Number(id)))
+  console.log(a)
+  a.forEach((media) => {
+    //fetch only media where link id is found and inject in dedicated factory     
       const photographersSection = document.querySelector(".photograph-content");
       const photographerModel = photographerMediaFactory(media);
       const userCardDOM = photographerModel.getUserCardDOM();
-      photographersSection.appendChild(userCardDOM);          
-    }
+      photographersSection.appendChild(userCardDOM);      
+      
+      const lightboxSection = document.querySelector(".lightboxContainer");
+      const lightboxBuilder = lightboxFactory(media);
+      const lightboxDOM = lightboxBuilder.getUserCardDOM();
+      lightboxSection.appendChild(lightboxDOM); 
   });
 }
 
 getPhotographers();
 
 
-
-
+//onlick sur le foreach
+//afficher galerie sur le onclick de l'image
+//let a = data.media.filter((media)=>(media.photographerId===Number(id)))
+//tableau.indexof()
