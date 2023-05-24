@@ -3,6 +3,11 @@ body {
     margin: 0;
 }
 
+#main {
+    display: flex;
+    flex-flow: column;
+}
+
 header {
     display: flex;
     flex-direction: row;
@@ -28,6 +33,7 @@ ul{
     background-color: #FAFAFA;
     height: 300px;
     margin: 0 100px;
+    order: 0;
 }
 
 .contact_button {
@@ -201,6 +207,7 @@ form input {
     flex-wrap: wrap;
     justify-content: space-evenly;
     margin: 0 100px;
+    order: 2;
 }
 
 .photograph-content article{
@@ -251,15 +258,25 @@ h4{
     font-weight: 100;
 }
 
+.photograph-sortMenu {
+    display: flex;
+    flex-flow: row;
+    margin: 0 163px;
+}
+
 .bottomStats{
     background-color:#D3573C ;
     border-radius: 10px 10px 0 0;
     position: fixed;
     bottom: 0;
     right: 5em;
-    width: 100px;
     display: flex;
     justify-content: center;
+    align-items: center;
     font-size: 25px;
     padding: 0 25px;
+}
+
+.bottomStats i{
+    margin: 0 2em 0 .4em;
 }
