@@ -5,19 +5,19 @@ let currentPhotographer;
 let totalLikes = 0;
 
 async function getPhotographers(filter) {
-    fetch('https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Front-End-Fisheye/main/data/photographers.json')
+  fetch('https://raw.githubusercontent.com/OpenClassrooms-Student-Center/Front-End-Fisheye/main/data/photographers.json')
     .then((response) => {
-        if (response.ok) {
-            return response.json();
-        } else {
-            console.log(`Erreur : ${response.status}`);
-        }
+      if (response.ok) {
+        return response.json();
+      } else {
+        console.log(`Erreur : ${response.status}`);
+      }
     })
     .then((data) => extractData(data, filter))
 }
 
-function extractData(data, sortProperty) {  
-  let a = data.media.filter((media)=>(media.photographerId===Number(id)))
+function extractData(data, sortProperty) {
+  let a = data.media.filter((media) => (media.photographerId === Number(id)))
 
   let sortedMedia = a.sort((a, b) => {
     // use comparison tu get the filtered array
@@ -27,7 +27,7 @@ function extractData(data, sortProperty) {
       return a[sortProperty].localeCompare(b[sortProperty]);
     }
   });
-  
+
   //clean HTML
   const anchorMedia = document.querySelector(".photograph-content")
   removeAllChildNodes(anchorMedia)
@@ -40,18 +40,18 @@ function extractData(data, sortProperty) {
   totalLikes = 0; //reset totalLikes
   sortedMedia.forEach((media) => {
     //fetch only media where link id is found and inject in dedicated factory     
-      const photographersSection = document.querySelector(".photograph-content");
-      const photographerModel = photographerMediaFactory(media);
-      const userCardDOM = photographerModel.getUserCardDOM();      
-      photographersSection.appendChild(userCardDOM);
+    const photographersSection = document.querySelector(".photograph-content");
+    const photographerModel = photographerMediaFactory(media);
+    const userCardDOM = photographerModel.getUserCardDOM();
+    photographersSection.appendChild(userCardDOM);
 
-      //lightbox
-      const lightboxSection = document.querySelector(".lightboxContainer");
-      const lightboxBuilder = lightboxFactory(media);
-      const lightboxDOM = lightboxBuilder.getUserCardDOM();            
-      lightboxSection.appendChild(lightboxDOM); 
+    //lightbox
+    const lightboxSection = document.querySelector(".lightboxContainer");
+    const lightboxBuilder = lightboxFactory(media);
+    const lightboxDOM = lightboxBuilder.getUserCardDOM();
+    lightboxSection.appendChild(lightboxDOM);
   });
-  
+
   //photographer header
   data.photographers.forEach((photographer) => {
     //fetch only photographer where link id is found and inject in dedicated factory
@@ -59,20 +59,20 @@ function extractData(data, sortProperty) {
       const photographersSection = document.querySelector(".photograph-header");
       const photographerModel = photographerSingleFactory(photographer);
       const userCardDOM = photographerModel.getUserCardDOM();
-      photographersSection.appendChild(userCardDOM);       
+      photographersSection.appendChild(userCardDOM);
     }
   });
 
   //sorting div
   const sortSection = document.querySelector(".photograph-sortMenu");
   const sortDiv = sortFactory();
-  sortSection.appendChild(sortDiv);  
+  sortSection.appendChild(sortDiv);
 
 }
 
 function removeAllChildNodes(parent) {
   while (parent.firstChild) {
-      parent.removeChild(parent.firstChild);
+    parent.removeChild(parent.firstChild);
   }
 }
 

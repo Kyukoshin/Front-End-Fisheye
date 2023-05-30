@@ -241,26 +241,3 @@ function sortBy(n) {
     }
 }
 
-window.onload = function() {
-    var dropdown = document.querySelector(".dropdown");
-    console.log(dropdown)
-    var dropdownContent = document.querySelector(".dropdown-content");
-  
-    dropdown.addEventListener("mouseenter", function() {
-      dropdownContent.style.display = "block";
-    });
-  
-    dropdown.addEventListener("mouseleave", function() {
-      dropdownContent.style.display = "none";
-    });
-  
-    var dropdownBtn = document.querySelector(".dropdown-btn");
-    var dropdownOptions = document.querySelectorAll(".dropdown-content ul li");
-  
-    dropdownOptions.forEach(function(option) {
-      option.addEventListener("click", function() {
-        dropdownBtn.textContent = option.textContent;
-        dropdownContent.style.display = "none"; // Hide dropdown after selecting an option
-      });
-    });
-  }
