@@ -36,15 +36,19 @@ function mediaIndex(x) {
 function displayLightBox() {
     document.getElementById("lightbox").style.display = "block";
     const anchor = document.getElementById("lightbox");
+    
     const close = document.createElement('a');
-    close.setAttribute("class","lightbox-close-btn fa-xmark fa-2xl");
+    close.setAttribute("class","lightbox-close-btn fa-solid fa-xmark fa-2xl");
     close.setAttribute("onclick","closeLightbox()");
+
     const previous = document.createElement('a');
     previous.setAttribute("class","prev fa-solid fa-chevron-left fa-2xl");
     previous.setAttribute("onclick","slideChange(-1)");
+
     const next = document.createElement('a');
     next.setAttribute("class","next fa-solid fa-chevron-right fa-2xl");
     next.setAttribute("onclick","slideChange(1)");
+
     anchor.appendChild(close);
     anchor.appendChild(next);
     anchor.appendChild(previous);

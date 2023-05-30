@@ -18,7 +18,6 @@ async function getPhotographers(filter) {
 
 function extractData(data, sortProperty) {  
   let a = data.media.filter((media)=>(media.photographerId===Number(id)))
-  console.log(sortProperty)
 
   let sortedMedia = a.sort((a, b) => {
     // use comparison tu get the filtered array
@@ -38,6 +37,7 @@ function extractData(data, sortProperty) {
   removeAllChildNodes(anchorSort)
 
   //photographer pictures
+  totalLikes = 0; //reset totalLikes
   sortedMedia.forEach((media) => {
     //fetch only media where link id is found and inject in dedicated factory     
       const photographersSection = document.querySelector(".photograph-content");
