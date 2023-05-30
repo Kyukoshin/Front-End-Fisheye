@@ -72,4 +72,20 @@ function showSlides(n) {
       slides[i].style.display = "none";
     }
     slides[slideIndex-1].style.display = "block";
+}
+
+document.body.onkeyup = function(e) {
+    if (e.keyCode == 32 || e.keyCode == 27) 
+    {
+        closeLightbox();
+        closeModal()
+    }
+    if (e.keyCode == 37 || e.keyCode == 81 || e.keyCode == 74) 
+    {
+        slideChange(-1)
+    }
+    if (e.keyCode == 39 || e.keyCode == 68 || e.keyCode == 76) 
+    {
+        slideChange(1)
+    }
   }
