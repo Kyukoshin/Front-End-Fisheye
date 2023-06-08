@@ -142,47 +142,50 @@ function photographerMediaFactory(data) {
     return { date, likes, price, title, video, image, id, getUserCardDOM }
 }
 
-function sortFactory() {
+function sortFactory(n) {
 
     const anchorFilter = document.createElement('div');
-    anchorFilter.setAttribute("class", `filterMenu`);
 
-    const dropdownMenu = document.createElement('div');
-    dropdownMenu.setAttribute("class", `dropdown`);
-    dropdownMenu.setAttribute("id", `12345`);
+    const sortTitle = document.createElement('label');
+    sortTitle.innerHTML = "Trier par : ";
 
-    const sortText = document.createElement('span');
-    sortText.innerHTML = "Trier par";
+    const sortMenu = document.createElement('select');
+    sortMenu.setAttribute("id", `sort`);
+    sortMenu.setAttribute("accesskey", `s`);
+    sortMenu.setAttribute("onchange", "changeSort(value)")
 
-    const sortMenu = document.createElement('ul');
+    let prop = "Choisir"
 
-    const sortPop = document.createElement('li');
-    sortPop.innerHTML = "Popularité";
-    sortPop.setAttribute("onclick", `sortBy("popularity")`);
+    if(n === "date"){
+        prop = "Date"
+    }else if(n==="likes"){
+        prop = "Popularité"
+    }else if(n==="title"){
+        prop = "Titre"
+    }
 
-    const sortDate = document.createElement('li');
-    sortDate.innerHTML = "Date";
-    sortDate.setAttribute("onclick", `sortBy("date")`);
+    const valueBlank = document.createElement('option');
+    valueBlank.innerHTML = prop;
+    valueBlank.style.display="none"
 
-    const sortTitle = document.createElement('li');
-    sortTitle.innerHTML = "Titre";
-    sortTitle.setAttribute("onclick", `sortBy("title")`);
+    const valueDate = document.createElement('option');
+    valueDate.innerHTML = "Date";
+    valueDate.setAttribute("value", "date");
 
-    const sortButton = document.createElement('button');
-    sortButton.setAttribute("class", `dropdown-btn`);
-    sortButton.innerHTML = "Titre";
+    const valueTitre = document.createElement('option');
+    valueTitre.innerHTML = "Titre";
+    valueTitre.setAttribute("value", "title");    
+    
+    const valuePop = document.createElement('option');
+    valuePop.innerHTML = "Popularité";
+    valuePop.setAttribute("value", "popularity");
 
-    const dropDown = document.createElement('div');
-    dropDown.setAttribute("class", `dropdown-content`);
-
-    sortMenu.appendChild(sortPop);
-    sortMenu.appendChild(sortDate);
-    sortMenu.appendChild(sortTitle);
-    anchorFilter.appendChild(sortText);
-    dropdownMenu.appendChild(sortButton);
-    dropDown.appendChild(sortMenu);
-    dropdownMenu.appendChild(dropDown);
-    anchorFilter.appendChild(dropdownMenu);
+    sortMenu.appendChild(valueBlank)
+    sortMenu.appendChild(valueDate)
+    sortMenu.appendChild(valuePop)
+    sortMenu.appendChild(valueTitre)
+    anchorFilter.appendChild(sortTitle)
+    anchorFilter.appendChild(sortMenu)
 
     return anchorFilter
 
@@ -194,7 +197,9 @@ function lightboxFactory(media) {
     function getUserCardDOM() {
         const img = document.createElement('li');
         img.setAttribute("class", "lightboxImage");
-        img.appendChild(new factoryImage(media));
+        const imgContent = new factoryImage(media);
+        imgContent.setAttribute("controls","true")
+        img.appendChild(imgContent)
         const caption = document.createElement('p');
         caption.setAttribute("class", "lightboxPicDesc");
         caption.innerHTML = title;
@@ -215,7 +220,7 @@ class factoryImage {
     }
 
     createVideo(video) {
-        let vid = document.createElement("video")
+        let vid = document.createElement("video")        
         let sour = document.createElement("source")
         sour.src = `D:\\Projets_Code\\OC\\Projet_FishEye\\Front-End-Fisheye-main\\assets\\photographers\\Sample Photos\\PhotographersPhotos\\` + video
         vid.appendChild(sour)
@@ -229,15 +234,18 @@ class factoryImage {
     }
 }
 
-function sortBy(n) {
+function changeSort(n) {
     if (n === "popularity") {
         getPhotographers("likes")
+        console.log("pop")
     }
     else if (n === "date") {
         getPhotographers("date")
+        console.log("date")
     }
     else if (n === "title") {
         getPhotographers("title")
+        console.log("titre")
     }
 }
 

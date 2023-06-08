@@ -21,8 +21,9 @@ ul {
 }
 
 .logo {
-    height: 50px;
-    margin-left: 100px;
+    height: 63px;
+    margin-left: 125px;
+    margin-top: 20px;
 }
 
 #contact_modal {
@@ -32,7 +33,7 @@ ul {
 .photograph-header {
     background-color: #FAFAFA;
     height: 300px;
-    margin: 0 100px;
+    margin: 3em 100px;
     order: 0;
 }
 
@@ -93,7 +94,7 @@ ul {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    margin: auto;
+    padding-top: 2em;
     position: absolute;
     top: 0;
 }
@@ -114,29 +115,28 @@ ul {
 }
 
 .lightboxImage img {
-    width: 70%;
-    position: absolute;
-    left: 15%;
-    top: 5%;
-    object-fit: cover;
-    max-height: 80%;
+    display: flex;
+    flex-flow: column;
+    max-height: 100em;
+    max-width: 70%;
+    align-items: center;
+    margin: 0px auto;
 }
 
 .lightboxPicDesc {
-    top: 86%;
-    left: 15%;
-    position: absolute;
+    max-width: 70%;
+    margin: 1em auto;
     font-size: 30px;
     color: #901C1C;
 }
 
 .lightboxImage video {
-    width: 70%;
-    position: absolute;
-    left: 15%;
-    top: 5%;
-    object-fit: cover;
-    max-height: 80%;
+    display: flex;
+    flex-flow: column;
+    max-height: 100em;
+    max-width: 70%;
+    align-items: center;
+    margin: 0px auto;
 }
 
 .lightboxTitle {
@@ -211,7 +211,7 @@ form input {
 }
 
 .photograph-content article {
-    width: 28%;
+    width: 26%;
 }
 
 .photograph-content article img {
@@ -261,7 +261,26 @@ h4 {
 .photograph-sortMenu {
     display: flex;
     flex-flow: row;
-    margin: 0 163px;
+    margin: 0 184px 3em;
+}
+
+.photograph-sortMenu div label {
+    font-weight: 600;
+    font-size: 1.2em;
+    padding: 7px;
+}
+
+.photograph-sortMenu div select {
+    border: none;
+    background-color: #901C1C;
+    color: white;
+    border-radius: 5px;
+    font-size: 1.2em;
+    padding: 7px;
+}
+
+.photograph-sortMenu div select option {
+    padding: 7px;
 }
 
 .bottomStats {
@@ -284,39 +303,4 @@ h4 {
 .dropdown {
     position: relative;
     margin-left: 10px;
-}
-
-.dropdown-btn {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 5px 10px;
-    cursor: pointer;
-}
-
-.dropdown-content {
-    position: absolute;
-    display: none;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 5px;
-}
-
-.dropdown-content ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-.dropdown-content ul li {
-    cursor: pointer;
-    padding: 5px;
-}
-
-.dropdown-content ul li:hover {
-    background-color: #f0f0f0;
-}
-
-.filterMenu {
-    display: flex;
-    align-items: center;
 }

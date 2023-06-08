@@ -20,7 +20,7 @@ function extractData(data, sortProperty) {
   let a = data.media.filter((media) => (media.photographerId === Number(id)))
 
   let sortedMedia = a.sort((a, b) => {
-    // use comparison tu get the filtered array
+    // use comparison to get the filtered array
     if (sortProperty === "likes" || sortProperty === "date") {
       return b[sortProperty] - a[sortProperty];
     } else if (sortProperty === "title") { //use localcompare to compare string values
@@ -65,7 +65,7 @@ function extractData(data, sortProperty) {
 
   //sorting div
   const sortSection = document.querySelector(".photograph-sortMenu");
-  const sortDiv = sortFactory();
+  const sortDiv = sortFactory(sortProperty);
   sortSection.appendChild(sortDiv);
 
 }
