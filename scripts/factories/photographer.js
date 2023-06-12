@@ -1,7 +1,7 @@
 function photographerFactory(data) {
     const { name, portrait, tagline, price, city, country, id } = data;
 
-    const picture = `D:\\Projets_Code\\OC\\Projet_FishEye\\Front-End-Fisheye-main\\assets\\photographers\\Sample Photos\\Photographers ID Photos\\` + portrait;
+    const picture = `https://raw.githubusercontent.com/Kyukoshin/Front-End-Fisheye/d395bd17dfd2f8e1abbb6a81fe3edf4eadec1725/assets/photographers/Sample%20Photos/Photographers%20ID%20Photos/` + portrait;
 
     function getUserCardDOM() {
         const article = document.createElement('article');
@@ -32,7 +32,7 @@ function photographerFactory(data) {
 function photographerSingleFactory(data) {
     const { name, portrait, tagline, price, city, country, id } = data;
 
-    const picture = `D:\\Projets_Code\\OC\\Projet_FishEye\\Front-End-Fisheye-main\\assets\\photographers\\Sample Photos\\Photographers ID Photos\\` + portrait;
+    const picture = `https://raw.githubusercontent.com/Kyukoshin/Front-End-Fisheye/d395bd17dfd2f8e1abbb6a81fe3edf4eadec1725/assets/photographers/Sample%20Photos/Photographers%20ID%20Photos/` + portrait;
 
     function getUserCardDOM() {
         const article = document.createElement('article');
@@ -85,7 +85,7 @@ let numSlide = 1
 function photographerMediaFactory(data) {
     const { date, likes, price, title, video, image, id } = data;
 
-    const picture = `D:\\Projets_Code\\OC\\Projet_FishEye\\Front-End-Fisheye-main\\assets\\photographers\\Sample Photos\\PhotographersPhotos\\` + image;
+    const picture = `https://raw.githubusercontent.com/Kyukoshin/Front-End-Fisheye/d395bd17dfd2f8e1abbb6a81fe3edf4eadec1725/assets/photographers/Sample%20Photos/Photographers%20ID%20Photos/` + image;
 
     function getUserCardDOM() {
         const article = document.createElement('article');
@@ -222,14 +222,14 @@ class factoryImage {
     createVideo(video) {
         let vid = document.createElement("video")        
         let sour = document.createElement("source")
-        sour.src = `D:\\Projets_Code\\OC\\Projet_FishEye\\Front-End-Fisheye-main\\assets\\photographers\\Sample Photos\\PhotographersPhotos\\` + video
+        sour.src = `https://raw.githubusercontent.com/Kyukoshin/Front-End-Fisheye/master/assets/photographers/Sample%20Photos/PhotographersPhotos/` + video
         vid.appendChild(sour)
         return vid
     }
 
     createImage(image) {
         let img = document.createElement("img")
-        img.src = `D:\\Projets_Code\\OC\\Projet_FishEye\\Front-End-Fisheye-main\\assets\\photographers\\Sample Photos\\PhotographersPhotos\\` + image
+        img.src = `https://raw.githubusercontent.com/Kyukoshin/Front-End-Fisheye/master/assets/photographers/Sample%20Photos/PhotographersPhotos/` + image
         return img
     }
 }
