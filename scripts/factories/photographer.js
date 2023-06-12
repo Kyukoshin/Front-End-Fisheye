@@ -205,7 +205,6 @@ function lightboxFactory(media) {
         caption.innerHTML = title;
         img.appendChild(caption);
         totalLikes += likes
-        console.log(totalLikes)
         return (img);
     }
     return { date, likes, price, title, video, image, id, getUserCardDOM }
@@ -237,15 +236,12 @@ class factoryImage {
 function changeSort(n) {
     if (n === "popularity") {
         getPhotographers("likes")
-        console.log("pop")
     }
     else if (n === "date") {
         getPhotographers("date")
-        console.log("date")
     }
     else if (n === "title") {
         getPhotographers("title")
-        console.log("titre")
     }
 }
 

@@ -1,6 +1,5 @@
 let params = (new URL(document.location)).searchParams;
 let id = params.get('id');
-console.log(id);
 let currentPhotographer;
 let totalLikes = 0;
 
@@ -77,3 +76,9 @@ function removeAllChildNodes(parent) {
 }
 
 getPhotographers();
+
+
+
+
+
+
