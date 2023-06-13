@@ -41,6 +41,7 @@ function photographerSingleFactory(data) {
         const portrait = document.createElement('div');
         const img = document.createElement('img');
         img.setAttribute("src", picture)
+        img.setAttribute("alt", name)
         const h1 = document.createElement('h1');
         h1.textContent = name;
         const h3 = document.createElement('h3');
@@ -223,12 +224,14 @@ class factoryImage {
         let sour = document.createElement("source")
         sour.src = `https://raw.githubusercontent.com/Kyukoshin/Front-End-Fisheye/master/assets/photographers/Sample%20Photos/PhotographersPhotos/` + video
         vid.appendChild(sour)
+        vid.setAttribute("alt", video)
         return vid
     }
 
     createImage(image) {
         let img = document.createElement("img")
         img.src = `https://raw.githubusercontent.com/Kyukoshin/Front-End-Fisheye/master/assets/photographers/Sample%20Photos/PhotographersPhotos/` + image
+        img.setAttribute("alt", image)
         return img
     }
 }
