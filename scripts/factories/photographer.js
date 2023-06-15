@@ -91,6 +91,8 @@ function photographerMediaFactory(data) {
 
     function getUserCardDOM() {
         const article = document.createElement('article');
+        article.setAttribute("role", "button")
+        article.setAttribute("tabindex", "0")
         const h3 = document.createElement('h3');
         h3.textContent = title;
         const h4 = document.createElement('h4');
@@ -138,7 +140,18 @@ function photographerMediaFactory(data) {
         desc.appendChild(h4);
         article.appendChild(desc);
         articleImage.setAttribute("onclick", `displayLightBox();currentSlide(${numSlide})`);
+        
+        let numSlideEnter = numSlide
+
+        article.addEventListener("keydown", (e) => {
+            if (e.code === "Enter") {
+                displayLightBox()
+                currentSlide(numSlideEnter);
+            }
+        });
+
         numSlide++
+
         return (article);
     }
     return { date, likes, price, title, video, image, id, getUserCardDOM }
@@ -158,17 +171,17 @@ function sortFactory(n) {
 
     let prop = "Choisir"
 
-    if(n === "date"){
+    if (n === "date") {
         prop = "Date"
-    }else if(n==="likes"){
+    } else if (n === "likes") {
         prop = "Popularité"
-    }else if(n==="title"){
+    } else if (n === "title") {
         prop = "Titre"
     }
 
     const valueBlank = document.createElement('option');
     valueBlank.innerHTML = prop;
-    valueBlank.style.display="none"
+    valueBlank.style.display = "none"
 
     const valueDate = document.createElement('option');
     valueDate.innerHTML = "Date";
@@ -176,8 +189,8 @@ function sortFactory(n) {
 
     const valueTitre = document.createElement('option');
     valueTitre.innerHTML = "Titre";
-    valueTitre.setAttribute("value", "title");    
-    
+    valueTitre.setAttribute("value", "title");
+
     const valuePop = document.createElement('option');
     valuePop.innerHTML = "Popularité";
     valuePop.setAttribute("value", "popularity");
@@ -200,7 +213,7 @@ function lightboxFactory(media) {
         const img = document.createElement('li');
         img.setAttribute("class", "lightboxImage");
         const imgContent = new factoryImage(media);
-        imgContent.setAttribute("controls","true")
+        imgContent.setAttribute("controls", "true")
         img.appendChild(imgContent)
         const caption = document.createElement('p');
         caption.setAttribute("class", "lightboxPicDesc");
@@ -221,7 +234,7 @@ class factoryImage {
     }
 
     createVideo(video) {
-        let vid = document.createElement("video")        
+        let vid = document.createElement("video")
         let sour = document.createElement("source")
         sour.src = `https://raw.githubusercontent.com/Kyukoshin/Front-End-Fisheye/master/assets/photographers/Sample%20Photos/PhotographersPhotos/` + video
         vid.appendChild(sour)
