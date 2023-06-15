@@ -29,23 +29,23 @@
     <div class="contact_modal">
       <header>
         <h2 id="contact_h2"></h2>
-        <img src="assets/icons/close.svg" onclick="closeModal()" />
+        <img src="assets/icons/close.svg" onclick="closeModal()" alt="close contact form"/>
       </header>
       <form method="get" class="form">
         <div>
-          <label>Prénom</label>
+          <label for="prénom">Prénom</label>
           <input type="text" name="prenom" id="prenom" required>
         </div>
         <div>
-          <label>Nom</label>
+          <label for="nom">Nom</label>
           <input type="text" name="nom" id="nom" required>
         </div>
         <div>
-          <label>Email</label>
+          <label for="email">Email</label>
           <input type="email" name="email" id="email" required>
         </div>
         <div>
-          <label>Votre message</label>
+          <label for="message à envoyer">Votre message</label>
           <input type="text" name="message" id="message" required>
         </div>
         <button type="submit" class="contact_button">Envoyer</button>
