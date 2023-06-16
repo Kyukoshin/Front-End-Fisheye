@@ -76,7 +76,7 @@ ul {
     cursor: pointer;
 }
 
-.contact_modal header h2 {
+.contact_modal header p {
     font-size: 50px;
     font-weight: normal;
     height: 3em;
