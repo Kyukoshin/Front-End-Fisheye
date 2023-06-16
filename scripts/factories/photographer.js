@@ -60,7 +60,7 @@ function photographerSingleFactory(data) {
         modal.setAttribute("class", "contact_button")
         modal.setAttribute("onclick", "displayModal()");
         modal.textContent = "Contactez-moi";
-        const modalName = document.querySelector(".contact_modal header h2");
+        const modalName = document.querySelector(".contact_modal header p");
         modalName.innerHTML = "Contactez-moi<br/>" + name;
         const stats = document.createElement('div');
         stats.setAttribute("class", "bottomStats");
