@@ -58,6 +58,7 @@ function photographerSingleFactory(data) {
         totHeart.setAttribute("class", "fa-solid fa-heart");
         const modal = document.createElement('button');
         modal.setAttribute("class", "contact_button")
+        modal.setAttribute("aria-label","Ouvrir le formulaire de contact");
         modal.setAttribute("onclick", "displayModal()");
         modal.textContent = "Contactez-moi";
         const modalName = document.querySelector(".contact_modal header p");
@@ -102,6 +103,8 @@ function photographerMediaFactory(data) {
         const heart = document.createElement('i');
         heart.setAttribute("class", "fa-regular fa-heart");
         heart.setAttribute("style", "color: #901c1c");
+        heart.setAttribute("aria-label","liker cette image");
+        
         h4.appendChild(heart);
 
         //Compteur likes
@@ -182,18 +185,22 @@ function sortFactory(n) {
     const valueBlank = document.createElement('option');
     valueBlank.innerHTML = prop;
     valueBlank.style.display = "none"
+    valueBlank.setAttribute("aria-label","chosir un filtre pour la gallerie");
 
     const valueDate = document.createElement('option');
     valueDate.innerHTML = "Date";
     valueDate.setAttribute("value", "date");
+    valueDate.setAttribute("aria-label","filtrer par date");
 
     const valueTitre = document.createElement('option');
     valueTitre.innerHTML = "Titre";
     valueTitre.setAttribute("value", "title");
+    valueTitre.setAttribute("aria-label","filtrer par ordre alphabétiquee");
 
     const valuePop = document.createElement('option');
     valuePop.innerHTML = "Popularité";
     valuePop.setAttribute("value", "popularity");
+    valuePop.setAttribute("aria-label","filtrer par popularité");
 
     sortMenu.appendChild(valueBlank)
     sortMenu.appendChild(valueDate)

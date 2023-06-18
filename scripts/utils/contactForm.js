@@ -49,16 +49,19 @@ function displayLightBox() {
     close.setAttribute("class", "lightbox-close-btn fa-solid fa-xmark fa-2xl");
     close.setAttribute("onclick", "closeLightbox()");
     close.setAttribute("alt", "close carousel");
+    close.setAttribute("aria-label","fermer la gallerie");
 
     const previous = document.createElement('a');
     previous.setAttribute("class", "prev fa-solid fa-chevron-left fa-2xl");
     previous.setAttribute("onclick", "slideChange(-1)");
     previous.setAttribute("alt", "previous image");
+    previous.setAttribute("aria-label","image précédente");
 
     const next = document.createElement('a');
     next.setAttribute("class", "next fa-solid fa-chevron-right fa-2xl");
     next.setAttribute("onclick", "slideChange(1)");
     next.setAttribute("alt", "next image");
+    next.setAttribute("aria-label","image suivante);
 
     anchor.appendChild(close);
     anchor.appendChild(next);
