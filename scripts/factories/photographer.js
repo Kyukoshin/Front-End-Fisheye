@@ -91,9 +91,7 @@ function photographerMediaFactory(data) {
     const picture = `https://raw.githubusercontent.com/Kyukoshin/Front-End-Fisheye/d395bd17dfd2f8e1abbb6a81fe3edf4eadec1725/assets/photographers/Sample%20Photos/Photographers%20ID%20Photos/` + image;
 
     function getUserCardDOM() {
-        const article = document.createElement('article');
-        article.setAttribute("role", "button")
-        article.setAttribute("tabindex", "0")
+        const article = document.createElement('article');        
         const h3 = document.createElement('h3');
         h3.textContent = title;
         const h4 = document.createElement('h4');
@@ -104,6 +102,8 @@ function photographerMediaFactory(data) {
         heart.setAttribute("class", "fa-regular fa-heart");
         heart.setAttribute("style", "color: #901c1c");
         heart.setAttribute("aria-label","liker cette image");
+        heart.setAttribute("role", "button")
+        heart.setAttribute("tabindex", "0")
         
         h4.appendChild(heart);
 
@@ -136,8 +136,40 @@ function photographerMediaFactory(data) {
             }
         });
 
+        heart.addEventListener("keydown", (e) => {
+            if (e.code === "Enter") {
+                if (heart.classList.contains("liked")) {
+                    let newLikes = this.likes
+                    totalLikes--
+                    totLikes = document.getElementById("totLikes")
+                    totLikes.textContent = totalLikes;
+                    h4.textContent = newLikes + " "
+                    h4.appendChild(heart)
+                    heart.classList.remove("liked")
+                    heart.classList.remove("fa-solid")
+                    heart.classList.add("fa-regular")
+    
+                }
+                else {
+                    let newLikes = this.likes
+                    newLikes++
+                    totalLikes++
+                    totLikes = document.getElementById("totLikes")
+                    totLikes.textContent = totalLikes;
+                    h4.textContent = newLikes + " "
+                    h4.appendChild(heart)
+                    heart.classList.add("liked")
+                    heart.classList.add("fa-solid")
+                    heart.classList.remove("fa-regular")
+    
+                }
+            }
+        });
+
         const articleImage = document.createElement('a');
         articleImage.appendChild(new factoryImage(data));
+        articleImage.setAttribute("role", "button")
+        articleImage.setAttribute("tabindex", "0")
         article.appendChild(articleImage);
         desc.appendChild(h3);
         desc.appendChild(h4);
@@ -146,7 +178,7 @@ function photographerMediaFactory(data) {
         
         let numSlideEnter = numSlide
 
-        article.addEventListener("keydown", (e) => {
+        articleImage.addEventListener("keydown", (e) => {
             if (e.code === "Enter") {
                 displayLightBox()
                 currentSlide(numSlideEnter);
