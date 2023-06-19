@@ -18,7 +18,7 @@ function closeLightbox() {
 
 }
 
-var surnameInput = document.getElementById('prenom');
+var surnameInput = document.getElementById('prénom');
 var nameInput = document.getElementById('nom');
 var emailInput = document.getElementById('email');
 var messageInput = document.getElementById('message');
@@ -61,7 +61,7 @@ function displayLightBox() {
     next.setAttribute("class", "next fa-solid fa-chevron-right fa-2xl");
     next.setAttribute("onclick", "slideChange(1)");
     next.setAttribute("alt", "next image");
-    next.setAttribute("aria-label","image suivante);
+    next.setAttribute("aria-label","image suivante");
 
     anchor.appendChild(close);
     anchor.appendChild(next);
@@ -89,7 +89,7 @@ function showSlides(n) {
 }
 
 document.body.onkeyup = function (e) {
-    if (e.keyCode == 32 || e.keyCode == 27) {
+    if (e.keyCode == 27) {
         closeLightbox();
         closeModal()
     }
